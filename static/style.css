@@ -1,0 +1,99 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* 🌈 FULL CENTER */
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #4facfe, #00f2fe);
+}
+
+/* 🧊 MAIN CARD */
+.container {
+    width: 95%;
+    max-width: 420px;   /* 🔥 important fix */
+    padding: 25px;
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+    background: rgba(255,255,255,0.15);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+    text-align: center;
+    color: white;
+}
+
+/* 🔍 SEARCH */
+.search-box {
+    display: flex;
+    gap: 10px;
+}
+
+input {
+    flex: 1;
+    padding: 12px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+}
+
+button {
+    padding: 12px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+/* 📍 LOCATION */
+.location-btn {
+    width: 100%;
+    margin-top: 10px;
+    background: #00c6ff;
+    color: white;
+}
+
+/* 🌤 WEATHER */
+.weather-box {
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 15px;
+    background: rgba(255,255,255,0.2);
+}
+
+.icon {
+    font-size: 50px;
+}
+
+.extra {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+/* 📅 FORECAST FIXED */
+.forecast {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    gap: 8px;              /* 🔥 spacing fix */
+    flex-wrap: wrap;       /* 🔥 wrap fix */
+}
+
+.day {
+    flex: 1 1 70px;        /* 🔥 responsive cards */
+    padding: 10px;
+    border-radius: 10px;
+    background: rgba(255,255,255,0.25);
+    text-align: center;
+    font-size: 12px;
+}
+
+/* ❌ ERROR */
+.error {
+    color: red;
+    margin-top: 10px;
+}

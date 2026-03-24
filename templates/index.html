@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Weather Pro</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+</head>
+
+<body class="{% if weather %}{{ weather.desc|lower }}{% endif %}">
+
+<div class="main">
+
+    <div class="container">
+
+        <h1>🌦 Weather Pro</h1>
+
+        <!-- SEARCH -->
+        <form method="POST" action="/" class="search-box">
+            <input type="text" name="city" placeholder="Enter city..." required>
+            <button type="submit">🔍</button>
+        </form>
+
+        <!-- LOCATION -->
+        <button type="button" onclick="getLocation()" class="location-btn">
+            📍 Use My Location
+        </button>
+
+        {% if error %}
+            <p class="error">{{ error }}</p>
+        {% endif %}
+
+        {% if weather %}
+        <div class="weather-box">
+
+            <h2>📍 {{ weather.city }}</h2>
+
+            <div class="icon">
+                {% if "cloud" in weather.desc %}
+                    ☁️
+                {% elif "rain" in weather.desc %}
+                    🌧️
+                {% elif "clear" in weather.desc %}
+                    ☀️
+                {% else %}
+                    🌤
+                {% endif %}
+            </div>
+
+            <h1>{{ weather.temp }}°C</h1>
+            <p class="desc">{{ weather.desc }}</p>
+
+            <div class="extra">
+                <span>💧 {{ weather.humidity }}%</span>
+                <span>🌬 {{ weather.wind }} km/h</span>
+            </div>
+
+        </div>
+        {% endif %}
+
+        {% if forecast %}
+        <div class="forecast">
+            {% for day in forecast %}
+            <div class="day">
+                <p>{{ day.day }}</p>
+                <h3>{{ day.temp }}°C</h3>
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+
+    </div>
+
+</div>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>
